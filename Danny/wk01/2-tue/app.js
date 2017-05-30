@@ -18,18 +18,23 @@ for (var first = 1; first <= 10; first ++) {
 
 
 // you top choices
-var colors = ["blue", "red", "green", "yellow", "brown", "gray", "gold", "silver"];
+var colors = ["blue", "red", "green", "yellow", "brown", "gray", "gold", "silver", "light gray", "megenta"];
+
+for (var i = 0; i < 20; i++) {
+  colors.push("random");
+}
 
 for (var i = 0; i < colors.length; i++) {
   var returnString = "My " + (i + 1);
   var sNum = (i + 1).toString();
   var lastDigit = sNum.charAt(sNum.length - 1);
+  var secondLastDigit = sNum.charAt(sNum.length - 2)
 
-  if (lastDigit == 1) {
+  if (lastDigit == 1 && secondLastDigit != 1) {
     returnString += "st "
-  } else if (lastDigit == 2) {
+  } else if (lastDigit == 2 && secondLastDigit != 1) {
     returnString += "nd "
-  } else if (lastDigit == 3) {
+  } else if (lastDigit == 3 && secondLastDigit != 1) {
     returnString += "rd "
   } else {
     returnString += "th "
