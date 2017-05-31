@@ -20,7 +20,7 @@ for (var first = 1; first <= 10; first ++) {
 // you top choices
 var colors = ["blue", "red", "green", "yellow", "brown", "gray", "gold", "silver", "light gray", "megenta"];
 
-for (var i = 0; i < 20; i++) {
+for (var i = 0; i < 150; i++) {
   colors.push("random");
 }
 
