@@ -1,6 +1,6 @@
 var alameinLine = ["Flinders Street", "Richmond", "East Richmond", "Burnley", "Hawthorn", "Glenferrie"]
 var glenWaverlyLine = ["Flagstaff", "Melbourne Central", "Parliament", "Richmond", "Kooyong", "Tooronga"]
-var sandringhamLine = ["Southern Cross", "Richmond", "South Yarra", "Prahan", "Windsor"]
+var sandringhamLine = ["Southern Cross", "Richmond", "South Yarra", "Prahran", "Windsor"]
 
 var trainLines = [alameinLine, glenWaverlyLine, sandringhamLine]
 
@@ -36,16 +36,15 @@ function haveDestination(origin, destination, lineArrays) {
 var userOrigin = prompt("Please eneter your origin")
 var userDestination = prompt("Please enter your destination")
 var linesToTravel = haveDestination(userOrigin, userDestination, trainLines);
-console.log(linesToTravel);
 while (linesToTravel === false) {
   userOrigin = prompt("Please enter your origin again")
   userDestination = prompt("Please enter your destination again")
   linesToTravel = haveDestination(userOrigin, userDestination, trainLines);
-  console.log(linesToTravel);
 }
 var returnString = ""
 console.log("origin: " + userOrigin);
 console.log("destination: " + userDestination);
+console.log("");
 var count = 0
 if (linesToTravel.length == 1) {
   var originIndex = linesToTravel[0].indexOf(userOrigin, 0)
@@ -83,6 +82,7 @@ if (linesToTravel.length == 1) {
     }
 
     var destinationIndex = linesToTravel[1].indexOf(userDestination, 0)
+    richmondIndex = linesToTravel[1].indexOf("Richmond", 0)
 
     if (richmondIndex > destinationIndex) {
       linesToTravel[1].reverse()
@@ -102,4 +102,5 @@ if (linesToTravel.length == 1) {
     }
   }
 console.log(returnString);
+console.log("");
 console.log((count - 1) + " stops total")
