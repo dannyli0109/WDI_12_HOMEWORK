@@ -34,9 +34,10 @@ var recipe = {
 console.log(recipe.title);
 console.log("Serves: " + recipe.serves);
 console.log("Ingredients: ");
-for (var index = 0; index < recipe.ingredients.length; index ++) {
-  console.log(recipe.ingredients[index]);
-}
+// for (var index = 0; index < recipe.ingredients.length; index ++) {
+//   console.log(recipe.ingredients[index]);
+// }
+console.log(recipe.ingredients.join("\n"))
 console.log("");
 
 
