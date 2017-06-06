@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  border: 2px solid pink;
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+
+main {
+  border: 1px solid lime;
+  vertical-align: top;
+  width: 70%;
+  float: left;
+}
+
+aside {
+  border: 1px solid blue;
+  vertical-align: top;
+  width: 25%
+  float: left;
+
+
+}
+
+img {
+  float: left;
+  width: 100%;
+}
