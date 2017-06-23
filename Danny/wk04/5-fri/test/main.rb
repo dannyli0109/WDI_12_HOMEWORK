@@ -40,12 +40,7 @@ players[1].take_card_pile card_piles.shift
 # player who wins gets the pile with three cards
 players.sample.take_card_pile card_piles.shift
 
-# the other player gets the pile with one card
-if players[0].piles_of_card > players[1].piles_of_card
-  players[1].take_card_pile card_piles.shift
-else
-  players[0].take_card_pile card_piles.shift
-end
-
+loser = players[0].piles_of_card > players[1].piles_of_card ? players[1] : players[0]
+loser.take_card_pile card_piles.shift
 
 binding.pry
