@@ -1,4 +1,17 @@
-
+<% def calculate_duration time
+  minute = 60
+  hour = minute * 60
+  day = hour * 24
+  returnString = ""
+  if time >= day
+    return "#{(time/day).to_i} days ago"
+  elsif time >= hour
+    return "#{(time/hour).to_i} hours ago"
+  elsif time >= minute
+    return "#{(time/minute).to_i} minutes ago"
+  end
+    return "#{time.to_i} seconds ago"
+end %>
 <header>
   <h2>Movie Database</h2>
 </header>
@@ -8,4 +21,30 @@
     <input id="movie" name="movie">
     <button>submit</button>
   </form>
+
+  <h3>Recently search</h3>
+  <ul>
+      <%FileUtils.cd("public") do %>
+        <%if !File.directory?("history")%>
+          <%FileUtils.mkdir("history")%>
+        <%end%>
+
+        <%FileUtils.cd("history") do%>
+          <%if !File::exists?( "logging.txt" )%>
+          <%File.new("logging.txt", "a+")%>
+          <%end%>
+          <% count = 0 %>
+          <%File.open("logging.txt").reverse_each do |line|%>
+          <% if count >= 10
+            break
+          end%>
+          <% time = Time.parse(line.split(",")[0]) %>
+          <% history = line.split(",")[1] %>
+          <li><%= "#{history}"%> <em><%="#{calculate_duration(Time.now - time)}" %></em></li>
+          <% count += 1 %>
+          <%end%>
+        <%end%>
+
+      <%end%>
+  </ul>
 </div>

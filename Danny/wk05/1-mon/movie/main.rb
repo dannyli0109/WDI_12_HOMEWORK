@@ -24,7 +24,7 @@ get "/search_result" do
       end
 
       File.open("logging.txt","a") do |file|
-        file << "#{Time.now}: #{movie}\n"
+        file << "#{Time.now},'#{movie}'\n"
       end
     end
   end

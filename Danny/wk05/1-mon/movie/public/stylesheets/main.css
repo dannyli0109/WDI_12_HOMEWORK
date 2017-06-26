@@ -6,7 +6,21 @@ header {
   text-align: center;
 }
 
+form {
+  padding: 5px;
+  font-size: 20px;
+}
+input {
+    width: 200px;
+    border-radius: 10px;
+    font-size: 20px;
+    padding-left: 5px;
+}
 
+button {
+  font-size: 20px;
+
+}
 ul {
   padding: 0;
   list-style-type: none;
@@ -15,11 +29,12 @@ ul {
 li {
   border-bottom: 1px dotted gray;
   padding-bottom: 10px;
+  font-weight: bold;
 }
 
 .dataDiv, .imgContainer {
   display: inline-block;
-  width: 40%;
+  width: 300px;
   margin: 0 auto;
   vertical-align:top;
   text-align: left;
@@ -27,8 +42,10 @@ li {
 
 .containerDiv {
   margin: 0 auto;
-  width: 100%;
+  width: 620px;
   text-align: center;
+  border: 2px solid black;
+  border-radius: 15px;
 }
 
 
@@ -36,6 +53,11 @@ li {
   text-align: center;
 }
 
+em {
+  text-align: right;
+  color: gray;
+  font-weight: 100;
+}
 body {
   width: 100%;
 }
