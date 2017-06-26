@@ -1,0 +1,12 @@
+
+<header>
+  <h2><%= "#{@result["Search"].count} movies found:" %></h2>
+</header>
+<div class="containerDiv">
+  <ul>
+    <% @result["Search"].each do |movie| %>
+    <li><a href='/movie_details/<%=movie["imdbID"] %>'><%=movie["Title"]%></a></li>
+    <% end %>
+  </ul>
+
+</div>

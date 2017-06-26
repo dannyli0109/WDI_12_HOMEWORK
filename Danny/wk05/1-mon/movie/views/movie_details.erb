@@ -1,0 +1,23 @@
+
+<header>
+  <h2><%= "#{@result["Title"]} (#{@result["Year"]})" %></h2>
+</header>
+
+
+<div class="containerDiv">
+  <div class="imgContainer">
+    <img src="<%= @result["Poster"] %>">
+  </div>
+
+  <div class="dataDiv">
+    <ul>
+      <% @result.each do |key,value| %>
+        <% if key != "Poster" && key!= "Title" %>
+          <% if key == "Rating" || key == "Rated" || key == "Released" || key == "Genre" || key == "Director" || key == "Writer"|| key == "Actors"%>
+          <li><%= "#{key}: #{value}" %></li>
+          <% end %>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>

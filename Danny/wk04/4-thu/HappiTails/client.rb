@@ -6,27 +6,6 @@ class Client
     @pets = []
   end
 
-=begin
-  def add_pet animals
-    puts "Do you want to enter a pet? (y/n)"
-    option = gets.chomp.downcase
-    if option == "y"
-      puts "What is the name of your pet?"
-      name = gets.chomp
-      if animals[name] == nil
-        puts "Animal: #{name} does not exist, please try again"
-        add_pet animals
-      else
-        @pets.push(animals[name])
-        add_pet animals
-      end
-    elsif option != "n" && option != "y"
-      puts "Invalid input, please try again"
-      add_pet animals
-    end
-  end
-=end
-
   def adopt animals
     puts "Which animal do you want to adopt?"
     name = gets.chomp
