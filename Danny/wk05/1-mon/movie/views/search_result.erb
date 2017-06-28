@@ -5,7 +5,7 @@
 <div class="containerDiv">
   <ul>
     <% @result["Search"].each do |movie| %>
-    <li><a href='/movie_details/<%=movie["imdbID"] %>'><%=movie["Title"]%></a></li>
+    <li><a href='/movies/<%=movie["imdbID"] %>'><%=movie["Title"]%></a></li>
     <% end %>
   </ul>
 
