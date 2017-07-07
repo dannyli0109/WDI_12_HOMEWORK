@@ -5,7 +5,7 @@ require 'pry'
 require 'sinatra/reloader'
 require 'pg'
 
-apikey = "2f6435d9"
+apikey = ENV["omdb_api_key"]
 
 def run_sql(sql)
   conn = PG.connect(dbname: 'movie_db')
@@ -16,7 +16,7 @@ end
 
 def add_movie id
   columns = ["imdbID", "Title", "Year", "Rated", "Released", "Genre", "Director", "Writer", "Actors", "Poster"]
-  apikey = "2f6435d9"
+  apikey = ENV["omdb_api_key"]
 
   find_exist = "SELECT * FROM movies WHERE imdbID = '#{id}'"
   if run_sql(find_exist).count == 0
