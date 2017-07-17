@@ -12,14 +12,17 @@ $('#search-btn').on("click", function(event) {
     }
   }
   // debugger
+  var $response = $(".response")
+
   $.ajax(setting).done(function(movies) {
     $("#movie-results").html("")
     if (movies.Response == "False") {
       $("#movie-results").append($("<li>" + "Not Found" + "</li>"))
     } else {
       movies.Search.forEach(function(movie) {
-        var link = 'http://www.imdb.com/title/' + movie.imdbID
-        $("#movie-results").append($("<li>" + "<a href='" + link + "'>" + movie.Title + "</a>" + "</li>"))
+        var source = $('#movie-result-template').html()
+        var template = Handlebars.compile(source)
+        $response.append(template(movie))
       })
     }
   })

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" style="width: 100%">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body style="width: 100vw; display: flex; justify-content: space-between">
+
+  <div style="position:fixed; top: 48%; left: 50px;">
+    <form action="">
+      <input id="search-input" type="text">
+      <br>
+      <button id="search-btn">search</button>
+
+    </form>
+  </div>
+
+  <div class="response" style="width: 100%;">
+
+  </div>
+  <script id="gif-result-template" type="template">
+  <div class="gif-result">
+  <img src={{ url }}>
+  </div>
+  </script>
+
+
+
+
+
+
+
+  <script src="http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-v4.0.10.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

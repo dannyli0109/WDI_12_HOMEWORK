@@ -14,18 +14,29 @@
     <button id="search-btn">search</button>
   </form>
 
+
+  <div class="response">
+
+  </div>
+  <!--
   <ul id="movie-results">
-    <!-- <a href="#">dsad</a> -->
 
-  </ul>
+</ul> -->
+
+<script id="movie-result-template" type="template">
+<div class="movie-result">
+  <h2>{{ Title }}</h2>
+  <h4>{{ Year }}</h4>
+</div>
+</script>
 
 
 
 
+<script src="http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-v4.0.10.js"></script>
 
-
-  <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="app.js"></script>
+<script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
