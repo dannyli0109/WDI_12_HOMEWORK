@@ -1,0 +1,7 @@
+<h1>Rock Paper Scissors</h1>
+<% @selections.each do |selection| %>
+<form action="/games/rock_paper_scissors/<%= selection %>" method="get">
+  <input type="hidden" name="generated" value="<%= @selections.sample %>">
+  <button><%= selection %></button>
+</form>
+<%end%>

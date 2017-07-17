@@ -1,0 +1,4 @@
+<h1>Games of Rails</h1>
+<% @games.each do |game| %>
+  <h3><a href="/games/<%= game[1]%>"><%= game[0] %></a></h3>
+<% end %>

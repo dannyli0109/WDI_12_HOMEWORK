@@ -1,0 +1,10 @@
+<h1>Magic 8 Ball</h1>
+<form action="/games/magic_8_ball" method="get">
+  <label for="">Ask a question:</label>
+  <textarea name="question"></textarea>
+  <button>submit</button>
+</form>
+
+<% if @answer != nil %>
+  <h2><%= @answer %></h2>
+<% end %>
