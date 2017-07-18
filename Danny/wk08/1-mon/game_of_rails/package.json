@@ -1,5 +1,7 @@
 {
   "name": "game_of_rails",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "mapbox-gl": "^0.38.0"
+  }
 }

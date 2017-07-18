@@ -1,0 +1,10 @@
+<h1>Cat details</h1>
+<h2>Name: <%= @cat.name %></h2>
+<img src="<%= @cat.image_url %>" alt="">
+<a href="/cats/<%= @cat.id %>/edit">edit</a>
+
+<form action="/cats/<%= @cat.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="hidden" name = "authenticity_token" value="<%= form_authenticity_token %>">
+  <button>delete</button>
+</form>

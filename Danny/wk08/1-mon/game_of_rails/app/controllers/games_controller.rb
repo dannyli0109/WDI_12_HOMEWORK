@@ -1,5 +1,10 @@
 class GamesController < ApplicationController
 
+  def home
+    @games = [["Magic 8 ball", "magic_8_ball"], ["Secret Number", "secret_number"], ["Rock Paper Scissors", "rock_paper_scissors"]]
+    render :index
+  end
+
   def index
     @games = [["Magic 8 ball", "magic_8_ball"], ["Secret Number", "secret_number"], ["Rock Paper Scissors", "rock_paper_scissors"]]
   end

@@ -1,0 +1,15 @@
+<h1>Edit Detail</h1>
+<form action="/cats/<%= @cat.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <input type="hidden" name = "authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label for="">name</label>
+  <input name="name" value="<%= @cat.name %>">
+
+  <label for="">image url</label>
+  <input name="image_url" value="<%= @cat.image_url %>">
+
+  <button>submit</button>
+
+
+</form>

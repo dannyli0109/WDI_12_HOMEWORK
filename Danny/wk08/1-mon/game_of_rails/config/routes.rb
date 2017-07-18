@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/', to: 'games#home'
+
   get '/games/magic_8_ball', to: 'games#magic_8_ball'
 
   get '/games/secret_number', to: 'games#secret_number'
