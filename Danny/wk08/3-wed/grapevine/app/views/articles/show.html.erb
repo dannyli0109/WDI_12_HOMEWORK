@@ -1,0 +1,122 @@
+<h1><%= @article.title %></h1>
+
+<div style="width: 100%;">
+  <canvas id="my_canvas" width="1000" height="600"></canvas>
+</div>
+
+<div style="width: 800px; height: 800px">
+  <canvas id="chart" width="400" height="400"></canvas>
+</div>
+
+
+
+<button id="loadComments">Load comments</button>
+<ul id="comments">
+
+</ul>
+
+<%= form_tag "/articles/#{@article.id}/comments", method: 'post' do %>
+  <label for="">comment</label>
+  <textarea name="comment"></textarea>
+  <button>submit</button>
+<% end %>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js">
+</script>
+
+<script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js">
+
+</script>
+
+<script>
+var ctx = document.getElementById("chart").getContext('2d');
+var wordCloud = document.getElementById('my_canvas')
+
+var newData = []
+var id =  <%= @article.id %>
+
+
+$.ajax({
+  url: '/api/articles/' + id
+}).done(function(res){
+
+  var list = res.histogram
+  var listLess = res.histogram_10
+//   _.forEach(res.histogram, function(value, key) {
+//   list.push([key,value])
+// });
+
+
+  // res.histogram.forEach(function(element) {
+  //   var obj = {}
+  //   obj[element[0]] = element[1]
+  //   list.push(obj)
+  // })
+
+
+
+  var base = list[0][1]
+  list.forEach(function(element) {
+    element[1] = element[1]/base* 90
+  })
+
+
+
+  WordCloud(wordCloud, { list: list });
+
+  var randomColorGenerator = function () {
+    return 'rgba(' +
+    (Math.round(Math.random() * 255)) + ", " +
+    (Math.round(Math.random() * 255)) + ", " +
+    (Math.round(Math.random() * 255)) + ", 0.2)"
+  };
+
+  var backgroundColor = []
+//   _.forEach(res.histogram_10, function(value, key) {
+//   backgroundColor.push(randomColorGenerator())
+// });
+var values = []
+var keys = []
+
+listLess.forEach(function(element) {
+    values.push(element[1])
+    keys.push(element[0])
+  backgroundColor.push(randomColorGenerator())
+})
+
+
+
+
+  var data = {
+    datasets: [{
+      data: values,
+      backgroundColor: backgroundColor
+    }],
+
+    labels: keys
+  };
+
+  new Chart(ctx, {
+    data: data,
+    type: 'polarArea'
+  });
+
+})
+
+$("#loadComments").on("click", function(e) {
+   $("#comments").html("")
+   $.ajax({
+     url: '/api/articles/' + id + "/comments"
+   }).done(function(res){
+      res.forEach(function(comment) {
+        $("#comments").append($("<li>" + comment.content + "</li>"))
+      })
+   })
+})
+
+</script>

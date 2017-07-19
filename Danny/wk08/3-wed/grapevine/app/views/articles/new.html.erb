@@ -1,0 +1,22 @@
+<%= form_tag '/articles', method: 'post' do %>
+
+  <label for="">title</label>
+  <input type="text" name="title">
+
+  <!-- <select>
+    <% @categories.each do |category| %>
+      <option><%= category.name %></option>
+    <% end %>
+
+  </select> -->
+
+
+  <%= select_tag :category_id, options_from_collection_for_select(
+  Category.all, :id, :name) %>
+
+  <label for="">content</label>
+  <textarea name="content"></textarea>
+
+  <button>create</button>
+
+<% end %>
