@@ -7,12 +7,9 @@ Rails.application.routes.draw do
 
 
 
-  get '/api/articles/:id', to: 'api/articles#show'
-
-  get '/api/articles/:id/comments', to: 'api/articles#show_comments'
-
-
-  get '/api/stuff', to: 'articles#stuff'
+  get '/api/articles/:id',           to: 'api/articles#show'
+  get '/api/articles/:id/comments',  to: 'api/articles#show_comments'
+  get '/api/stuff',                  to: 'articles#stuff'
 
 
 

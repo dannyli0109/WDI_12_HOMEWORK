@@ -16,9 +16,9 @@
 </ul>
 
 <%= form_tag "/articles/#{@article.id}/comments", method: 'post' do %>
-  <label for="">comment</label>
-  <textarea name="comment"></textarea>
-  <button>submit</button>
+<label for="">comment</label>
+<textarea name="comment"></textarea>
+<button>submit</button>
 <% end %>
 
 
@@ -47,18 +47,6 @@ $.ajax({
 
   var list = res.histogram
   var listLess = res.histogram_10
-//   _.forEach(res.histogram, function(value, key) {
-//   list.push([key,value])
-// });
-
-
-  // res.histogram.forEach(function(element) {
-  //   var obj = {}
-  //   obj[element[0]] = element[1]
-  //   list.push(obj)
-  // })
-
-
 
   var base = list[0][1]
   list.forEach(function(element) {
@@ -69,6 +57,7 @@ $.ajax({
 
   WordCloud(wordCloud, { list: list });
 
+
   var randomColorGenerator = function () {
     return 'rgba(' +
     (Math.round(Math.random() * 255)) + ", " +
@@ -77,19 +66,14 @@ $.ajax({
   };
 
   var backgroundColor = []
-//   _.forEach(res.histogram_10, function(value, key) {
-//   backgroundColor.push(randomColorGenerator())
-// });
-var values = []
-var keys = []
+  var values = []
+  var keys = []
 
-listLess.forEach(function(element) {
+  listLess.forEach(function(element) {
     values.push(element[1])
     keys.push(element[0])
-  backgroundColor.push(randomColorGenerator())
-})
-
-
+    backgroundColor.push(randomColorGenerator())
+  })
 
 
   var data = {
@@ -108,15 +92,17 @@ listLess.forEach(function(element) {
 
 })
 
-$("#loadComments").on("click", function(e) {
-   $("#comments").html("")
-   $.ajax({
-     url: '/api/articles/' + id + "/comments"
-   }).done(function(res){
-      res.forEach(function(comment) {
-        $("#comments").append($("<li>" + comment.content + "</li>"))
-      })
-   })
-})
+var loadComments = function(e) {
+  $("#comments").html("")
+  $.ajax({
+    url: '/api/articles/' + id + "/comments"
+  }).done(function(res){
+    res.forEach(function(comment) {
+      $("#comments").append($("<li>" + comment.content + "</li>"))
+    })
+  })
+}
+
+$("#loadComments").on("click", loadComments)
 
 </script>

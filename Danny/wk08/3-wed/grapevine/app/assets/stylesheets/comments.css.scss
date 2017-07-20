@@ -1,0 +1,10 @@
+$primary-color: mistyrose;
+
+#comments {
+  background-color: $primary-color;
+
+  li {
+    border-bottom: 1px solid red;
+  }
+
+}
