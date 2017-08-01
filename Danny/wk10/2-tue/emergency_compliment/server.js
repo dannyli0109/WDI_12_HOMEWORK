@@ -1,10 +1,13 @@
 const PORT = 5000
-var app = require("express")();
+var express = require("express");
+var app = express();
 var request = require("request");
 var _ = require("lodash")
 var bodyParser = require("body-parser")
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"))
 
 var compliments = [
   "Your instructors love you",
