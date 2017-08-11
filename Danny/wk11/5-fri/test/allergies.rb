@@ -6,22 +6,17 @@ class Allergies
   end
 
   def allergic_to? item
-    binaryScore = @score.to_s(2).split("").reverse
-    binaryScore[@@list.find_index(item)] == "1"
+    !!self.list.find_index(item)
   end
 
   def list
     binaryScore = @score.to_s(2).split("").reverse
-    index = 0
     return_list = []
-    while binaryScore.length > 0 do
+    for i in 0...binaryScore.length
       if binaryScore.shift == "1"
-        return_list.push(@@list[index])
+        return_list.push(@@list[i])
       end
-      index += 1
     end
     return_list
   end
-
-
 end
